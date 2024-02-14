@@ -18,21 +18,18 @@ class TestCart(unittest.TestCase):
         self.flag = False
         if excu == 'Local':
             if browser == 'chrome':
-                s = Service('D:\WebDrivers\chromedriver.exe')
                 self.driver = webdriver.Chrome(service=s)
                 self.driver.implicitly_wait(30)
                 self.driver.get("https://rahulshettyacademy.com/seleniumPractise/#/")
                 self.action = ActionChains(self.driver)
                 self.wait = WebDriverWait(self.driver, 60)
             elif browser == 'firefox':
-                s = Service('D:\WebDrivers\geckodriver.exe')
                 self.driver = webdriver.Firefox(service=s)
                 self.driver.implicitly_wait(30)
                 self.driver.get("https://rahulshettyacademy.com/seleniumPractise/#/")
                 self.action = ActionChains(self.driver)
                 self.wait = WebDriverWait(self.driver, 60)
             elif browser == 'edge':
-                s = Service('D:\WebDrivers\msedgedriver.exe')
                 self.driver = webdriver.Edge(service=s)
                 self.driver.implicitly_wait(30)
                 self.driver.get("https://rahulshettyacademy.com/seleniumPractise/#/")
@@ -42,20 +39,15 @@ class TestCart(unittest.TestCase):
                 print("Please choose correct driver")
         if excu == 'Grid':
             if browser == "chrome":
-                # Local webdriver implementation
-                # web_driver = webdriver.Chrome()
-                # Remote WebDriver implementation
                 self.driver = webdriver.Remote(
-                    command_executor='http://192.168.1.100:4444/wd/hub',
-                    desired_capabilities={'browserName': 'chrome', 'javascriptEnabled': True})
+                    command_executor='http://192.168.1.100:4444/wd/hub')
 
             elif browser == "firefox":
                 # Local webdriver implementation
                 # web_driver = webdriver.Firefox()
                 # Remote WebDriver implementation
                 self.driver = webdriver.Remote(
-                    command_executor='http://192.168.1.100:4444/wd/hub',
-                    desired_capabilities={"browserName": "firefox", "platformName": "Windows 10"})
+                    command_executor='http://192.168.1.100:4444/wd/hub')
             else:
                 print("Please choose correct driver")
 
