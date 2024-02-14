@@ -2,14 +2,17 @@ import time
 import unittest
 
 from selenium import webdriver
-
+from selenium.webdriver.chrome.options import Options
 from Pages.Homepage import Home, CartItems
 from Pages.orderpage import Order
 
 
 class MyTest(unittest.TestCase):
     def setUp(self) -> None:
-        self.driver = webdriver.Chrome()
+        chrome_options = Options()
+        chrome_options.add_argument('--headless')
+        chrome_options.add_argument('--no-sandbox')
+        self.driver = webdriver.Chrome(options=chrome_options)
         self.driver.get("https://rahulshettyacademy.com/seleniumPractise/#/")
         self.driver.implicitly_wait(10)
 
