@@ -16,7 +16,7 @@ pipeline{
             }
         }
       stage("Test"){
-        step{
+        steps{
           sh 'python3 -m Tests.maintest'
             }
         }
