@@ -9,7 +9,7 @@ pipeline{
                 checkout([$class: 'GitSCM', branches: [[name: 'main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Shivammdh/Add-To-Cart.git']]])
             }
     }
-      stage(
+      stage("Build"){
         steps {
                 git branch: 'main', url: 'https://github.com/Shivammdh/Add-To-Cart.git'
                 
@@ -17,7 +17,7 @@ pipeline{
         }
       stage("Test"){
         step{
-          sh 'python3 -m Utilites.PassArgument'
+          sh 'python3 -m Tests.maintest'
             }
         }
     }
